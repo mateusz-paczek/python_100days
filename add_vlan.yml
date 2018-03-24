@@ -1,0 +1,14 @@
+---
+- hosts: switches
+
+  gather_facts: no
+  connection: local
+
+  tasks:
+  - name: configure VLAN on Cisco Switch
+    ios_config: 
+      authorize: yes
+      lines:
+      - name Sales
+      parents: vlan 666
+

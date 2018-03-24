@@ -1,0 +1,2 @@
+ANSIBLE
+ansible all -i hosts -a "show version"

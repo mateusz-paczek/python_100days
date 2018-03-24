@@ -1,0 +1,15 @@
+[switches]
+172.16.1.21
+172.16.1.22
+172.16.1.23
+172.16.1.24
+
+[routers]
+172.16.1.11
+172.16.1.12
+172.16.1.13
+172.16.1.14
+
+[all:vars]
+ansible_user=cisco
+ansible_ssh_pass=cisco

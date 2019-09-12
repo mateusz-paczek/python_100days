@@ -1,0 +1,12 @@
+#Create a dictionary containing HOSTNAME (a string), LOOPBACK (an IP address) MAXINT (number) and BANNER (6 lines, preserve the newlines)
+---
+hostname: R1
+loopback: 192.168.1.1
+maxint: 3
+banner: |
+   This is a multi-line banner
+   Preserving the newlines
+   *****************************
+   Down to line 6
+   *****************************
+   

@@ -1,0 +1,16 @@
+# Create a list of BGP Neighbors having:
+# - Mandatory: ADDRESS (IP Address), DESCRIPTION (string) and ASN
+# - Optional: STATE (present, absent or down), policy (route-map name)
+---
+- address: 123.1.1.1
+  description: "ISP-A"
+  asn: 100
+- address: 201.1.1.1
+  description: "ISP-B"
+  asn: 200
+  state: present
+- address: 10.1.1.254
+  description: "to Core-1"
+  asn: 65542
+  state: absent
+  policy: "to-core-route-map"

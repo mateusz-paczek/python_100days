@@ -1,0 +1,10 @@
+# Create a list of users having:
+# - Mandatory: USERNAME and PASSWORD
+# - Optional: PRIVILIGE (number) and AUTOCOMMAND (string) attributes
+---
+- username: admin
+  password: admin
+- username: cisco
+  password: cisco
+  privilege: 15
+  autocommand: "show running-config"

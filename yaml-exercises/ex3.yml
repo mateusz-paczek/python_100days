@@ -1,0 +1,4 @@
+# Create a list of hostnames (each hostname is a FQDN string)
+---
+- www.example.com
+- mail.example.com

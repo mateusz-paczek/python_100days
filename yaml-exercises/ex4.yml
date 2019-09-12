@@ -1,0 +1,7 @@
+# Create list of USERNAME (string)/PASSWORD (string) pairs
+---
+- username: cisco
+  password: cisco
+- username: admin
+  password: admin
+

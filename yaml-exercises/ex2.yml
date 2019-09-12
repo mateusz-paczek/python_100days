@@ -1,0 +1,9 @@
+#Create a dictionary containing HOSTNAME (a string), LOOPBACK (an IP address), and INTERFACES (a list of strings)
+---
+hostaname: R1
+loopback: 192.168.1.1
+interfaces:
+   - Ethernet0
+   - Ethernet1
+   - "FastEthernet 0/1"
+

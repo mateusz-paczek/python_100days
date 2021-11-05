@@ -13,7 +13,7 @@ column = int(position[0])
 row = int(position[1])
 
 map[row-1][column-1] = "X"
-print(map)
+#print(map)
 
 
 print(f"{row1}\n{row2}\n{row3}")

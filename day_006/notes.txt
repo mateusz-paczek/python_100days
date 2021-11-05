@@ -1,0 +1,6 @@
+FUNCTIONS
+def my_function():
+    print("Hello from Function my_function()")
+
+my_function()
+

@@ -1,0 +1,17 @@
+---
+- name: PLAYBOOK THAT COPIES HOSTNAME TO LOCAL DRIVE
+  hosts: routers
+  gather_facts: no
+  tasks:
+    - name: SHOW HOSTNAME USING CISCO.IOS.IOS_COMMAND MODULE
+      cisco.ios.ios_command:
+        commands: show ip int brief
+      register: show_ip
+    - name: PRINT OUTPUT TO THE SCEEN
+      ansible.builtin.debug:
+        var: show_ip
+    - name: STORE OUTPUT IN A FILE
+      ansible.builtin.copy:
+        content: "{{ show_ip.stdout_lines }}"
+        dest: "{{ inventory_hostname }}_show_ip.txt"
+      delegate_to: localhost

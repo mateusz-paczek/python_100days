@@ -1,0 +1,11 @@
+---
+- name: PLAYBOOK TO CONFIGURE ACL ON ROUTERS
+  hosts: R1
+  tasks:
+    - name: TASK1 - USE ACLS MODULE TO GATHER THE CURRENT CONFIG
+      cisco.ios.ios_acls:
+        state: gathered
+      register: acls
+    - name: TASK2 - DISPLAY ACLS
+      ansible.builtin.debug:
+        var: acls  

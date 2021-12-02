@@ -1,0 +1,24 @@
+---
+- name: ENABLE OSPF 
+  hosts: routers
+  tasks:
+    - name: ENABLE OSPF
+      cisco.ios.ios_config:
+        lines: router ospf 1
+- name: ENABLE BGP
+  hosts: routers
+  tasks:
+    - name: ENABLE BGP AS 65000
+      cisco.ios.ios_config:
+        lines: router bgp 65000
+    - name: ENABLE BGP IPv4 Address Family
+      cisco.ios.ios_config:
+        lines: address-family ipv4 unicast
+        parents: router bgp 65000
+    - name: ADVERTISE LOOPBACK INTO BGP
+      cisco.ios.ios_config:
+        lines: network 1.1.1.0 mask 255.255.255.0
+        parents: 
+          - router bgp 65000
+          - address-family ipv4 unicast
+        save_when: modified

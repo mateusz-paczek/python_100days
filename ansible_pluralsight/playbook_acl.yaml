@@ -1,0 +1,37 @@
+---
+- name: PLAYBOOK TO CONFIGURE ACL ON ROUTERS
+  hosts: R1
+  tasks:
+    - name: TASK1 - CONFIGURE ACL ON ROUTERS
+      cisco.ios.ios_acls:
+        config:
+        - afi: ipv4
+          acls:
+          - name: Internet_PBR
+            acl_type: extended
+            aces:
+            - grant: permit
+              protocol: ip
+              source:
+                address: 192.168.200.0
+                wildcard_bits: 0.0.0.255
+              destination:
+                any: yes
+        state: merged
+    - name: Merge provided configuration with device configuration
+      cisco.ios.ios_acls:
+        config:
+        - afi: ipv4
+          acls:
+          - name: std_acl
+            acl_type: standard
+            aces:
+            - grant: deny
+              source:
+                address: 192.168.3.200
+            - grant: deny
+              source:
+                address: 192.168.3.0
+                wildcard_bits: 0.0.0.255
+        state: merged
+

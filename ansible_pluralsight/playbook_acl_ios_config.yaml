@@ -1,0 +1,17 @@
+---
+- name: PLAYBOOK TO CONFIGURE ACL ON ROUTERS
+  hosts: R1
+  tasks:
+    - name: TASK1 - ADD ACE INTO INTERNET_PBR ACL
+      cisco.ios.ios_config:
+        lines: "permit ip {{ item.address }} {{ item.wildcard }} any"
+        parents: ip access-list extended Internet_PBR
+        save_when: modified
+      notify: config_changed
+      register: cli_result
+      with_items: "{{ acls  }}"
+  handlers:
+    - name: "HANDLER 1: Display relevant changes"
+      listen: config_changed
+      debug:
+        msg: "{{ cli_result }}"

@@ -1,0 +1,13 @@
+---
+- name: Display facts from routers
+  hosts: routers
+  gather_facts: yes
+  tasks:
+    - name: SHOW VERSION when IOS is 15.5
+      cisco.ios.ios_command:
+        commands: show ip int brief
+      when: ansible_facts["net_version"]=="15.5(3)M"
+      register: result
+    - name: DISPLAY RESULT TO THE WINDOW
+      ansible.builtin.debug:
+        var: result.stdout_lines

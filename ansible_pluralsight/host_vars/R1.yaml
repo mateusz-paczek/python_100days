@@ -1,0 +1,13 @@
+---
+acls:
+  - address: 192.168.123.0
+    wildcard: 0.0.0.255
+  - address: 192.168.124.0
+    wildcard: 0.0.0.127
+  - address: 192.168.125.5
+    wildcard: 0.0.0.0
+  - address: 192.168.125.6
+    wildcard: 0.0.0.0
+  - address: 192.168.128.0
+    wildcard: 0.0.0.3
+ 

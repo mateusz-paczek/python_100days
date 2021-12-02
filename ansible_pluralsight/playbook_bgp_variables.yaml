@@ -1,0 +1,18 @@
+---
+- name: PLAY TO ENABLE BGP
+  hosts: routers
+  tasks:
+    - name: TASK TO ENABLE BGP AS 65000
+      cisco.ios.ios_config:
+        lines: "router bgp {{ bgp_asn }}"
+    - name: TASK TO ENABLE BGP IPv4 Address Family
+      cisco.ios.ios_config:
+        lines: address-family ipv4 unicast
+        parents: "router bgp {{ bgp_asn }}"
+    - name: TASK TO ADVERTISE LOOPBACK INTO BGP
+      cisco.ios.ios_config:
+        lines: "network {{ loopback }} mask 255.255.255.255"
+        parents: 
+          - "router bgp {{ bgp_asn }}"
+          - address-family ipv4 unicast
+        save_when: modified

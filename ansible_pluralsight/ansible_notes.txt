@@ -1,0 +1,40 @@
+# Create virtual environment
+python3 -m virtualenv <name_of_virtual environment>
+
+# If no virtualenv installed
+sudo apt -y install python3-virtualenv
+
+# Activate virtualenv
+source venv/ansible_plural/bin/Activate
+
+# Install specific version of ansible withing virtualenv
+pip install ansible==3.4.0
+
+# Verify if ansible was installed correctly
+pip freeze | grep ansible
+ansible --version
+
+# Remove virtualenv
+rm -rf /venv/ansible_plural
+
+# Ansible CFG 
+1. ENV $ANSIBLE_CONFIG
+2. ./ansible.cfg 
+3. ~/.ansible.cfg - .ansible.cfg in home directory
+4. /etc/ansible/ansible.cfg
+
+# Ansible collection verification
+ansible-galaxy collection list cisco.ios
+ansible-galaxy collection list cisco.nxos
+
+# Ansible collection installation (latest version)
+ansible-galaxy collection install cisco.nxos
+
+# Ansible collection installation (specific version)
+ansible-galaxy collection install cisco.nxos:==2.4.0 --force
+
+
+# Ansible ad-hoc commands
+ansible -i inventory.yaml -m cisco.nxos.nxos_feature -a feature=scp-server all 
+ansible -i inventory.yaml -m cisco.nxos.nxos_feature -a "feature=scp-server state=disabled" all 
+

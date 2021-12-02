@@ -1,0 +1,16 @@
+---
+all:
+  hosts:
+  children:
+    switches:
+      hosts:
+        S1:
+        S2:
+    west:
+      hosts:
+        S1:
+    east:
+      hosts:
+        S2:
+  
+  vars:

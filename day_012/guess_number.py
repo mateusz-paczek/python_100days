@@ -5,9 +5,7 @@ print("Welcome to the Number Guessing game")
 print("I am thinking about number between 1 and 100")
 
 guess = random.randint(1,100)
-print(type(guess))
 print(f"Pssst, the correct number is {guess}")
-print(guess)
 
 difficulty = input("Choose a difficulty. Type 'easy' or 'hard':")
 if difficulty == "easy":

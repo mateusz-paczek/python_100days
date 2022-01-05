@@ -1,0 +1,10 @@
+class Car:  
+    def __init__(self, seats):
+        self.seats = seats
+    
+    # Create Method
+    def enter_race_mode():
+        self.seats = 2
+
+my_car = Car(5) -> This is equivalent to my_car.seats = 5
+my_car.enter_race_mode()
